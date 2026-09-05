@@ -128,3 +128,16 @@ h2{
 	overflow: hidden;
 	
 }
+@media screen and (min-width: 481px){
+	html{
+		font-size: 10px;
+	}
+	body{
+		max-width: 750px;
+		margin: auto;
+	}
+	main {
+		max-width: 37.5rem;
+		margin: auto;
+	}
+}
