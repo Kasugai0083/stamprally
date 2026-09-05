@@ -1,0 +1,33 @@
+:root{
+	--black: #333;
+	--white: #fff;
+	--light-gray: #ccc;
+	--middle-gray: #999;
+	--dark-gray: #666;
+	--red: #e83820;
+	--orange: #e27510;
+	--yellow: #ffea2d;
+	--blue: #1164e2;
+	--green: #24a740;
+	--pale: #f1ede0;
+	--main-color: #273554;
+	--sub-color: #184621;
+
+	--bg-color:#74a8da;
+
+	--border1: var(--main-color) solid 0.1rem;
+
+	--ofset_center: calc(50% - 37.5rem / 2);
+
+	--main-font: 'Roboto', 'Noto Sans JP', sans-serif;
+
+	/*--Material Symbols設定 案件ごとに設定--*/
+	--ms: 'Material Symbols Outlined';
+	/*--個別にMaterial Symbolsを設定する場合--*/
+	--mso: 'Material Symbols Outlined';
+	--msr: 'Material Symbols Rounded';
+	--mss: 'Material Symbols Sharp';
+}
+.material-symbols {
+	font-family: var(--ms);
+}

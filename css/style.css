@@ -1,0 +1,1159 @@
+@charset "UTF-8";
+@import url("./animation.css");
+:root {
+  --black: #333;
+  --white: #fff;
+  --light-gray: #ccc;
+  --middle-gray: #999;
+  --dark-gray: #666;
+  --red: #e83820;
+  --orange: #e27510;
+  --yellow: #ffea2d;
+  --blue: #1164e2;
+  --green: #24a740;
+  --pale: #f1ede0;
+  --main-color: #273554;
+  --sub-color: #184621;
+  --bg-color:#74a8da;
+  --border1: var(--main-color) solid 0.1rem;
+  --ofset_center: calc(50% - 37.5rem / 2);
+  --main-font: 'Roboto', 'Noto Sans JP', sans-serif;
+  /*--Material Symbols設定 案件ごとに設定--*/
+  --ms: 'Material Symbols Outlined';
+  /*--個別にMaterial Symbolsを設定する場合--*/
+  --mso: 'Material Symbols Outlined';
+  --msr: 'Material Symbols Rounded';
+  --mss: 'Material Symbols Sharp';
+}
+
+.material-symbols {
+  font-family: var(--ms);
+}
+
+/*====================================================================
+　全体設定
+====================================================================*/
+html, body, header, footer, main, section, nav, div, ul, ol, li, a, p, h1, h2, h3, h4, h5, h6, img, dl, dt, dd, form, label, input, textarea, span {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/*--ベースとなるフォントサイズ 1rem=10px想定--*/
+html {
+  font-size: 2.6666666667vw;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  background: var(--bg-color);
+  min-height: 100dvh;
+  color: var(--black);
+  font-family: var(--main-font);
+  font-size: 1.4rem;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+main {
+  position: relative;
+}
+main:after {
+  content: "";
+  position: absolute;
+  inset: 14.4rem 0 0;
+  background: url("../img/bg_star.png") repeat 0rem 0rem/37.5rem auto;
+  z-index: -1;
+  animation: bg_star 48s linear infinite;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: var(--red);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.caution li,
+.indent {
+  padding-left: 1em;
+  text-indent: -1em;
+  text-align: left;
+}
+
+.error {
+  background: #fff;
+  border: var(--red) solid 0.2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem auto;
+  max-width: 35.5rem;
+  color: var(--red);
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+.mt05 {
+  margin-top: 0.5rem !important;
+}
+
+.mt1 {
+  margin-top: 1rem !important;
+}
+
+.mt15 {
+  margin-top: 1.5rem !important;
+}
+
+.mt2 {
+  margin-top: 2rem !important;
+}
+
+.mt3 {
+  margin-top: 3rem !important;
+}
+
+.mt4 {
+  margin-top: 4rem !important;
+}
+
+.mt5 {
+  margin-top: 5rem !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
+}
+
+.mb05 {
+  margin-bottom: 0.5rem !important;
+}
+
+.mb1 {
+  margin-bottom: 1rem !important;
+}
+
+.mb15 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mb2 {
+  margin-bottom: 2rem !important;
+}
+
+.mb3 {
+  margin-bottom: 3rem !important;
+}
+
+.mb4 {
+  margin-bottom: 4rem !important;
+}
+
+.mb5 {
+  margin-bottom: 5rem !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.left {
+  text-align: left !important;
+}
+
+.right {
+  text-align: right !important;
+}
+
+/*--------------見出し-----------*/
+h2 {
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+/*--------------------枠--------------------*/
+/*--フッタの高さ分、下部に余白を与えるために利用
+フッタが無いページでは不要--*/
+.section {
+  padding-bottom: 6rem;
+}
+
+.block {
+  padding: 2rem 0rem;
+}
+
+/*--共通の枠が必要な場合などに利用--*/
+.content {
+  position: relative;
+  background: url("../img/bg_contents_head.png") no-repeat center -0.1rem/33.6rem auto, url("../img/bg_contents_btm.png") no-repeat center calc(100% + 0.1rem)/33.6rem auto, #fff;
+  border-radius: 1rem;
+  padding: 3rem 1.5rem 4rem;
+  margin: 0 auto 2rem;
+  width: 33.5rem;
+  overflow: hidden;
+}
+
+/*--------------------ボタン--------------------*/
+button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: none;
+  border: none;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--light-gray);
+  border-radius: 100vw;
+  width: 100%;
+  max-width: 28rem;
+  margin: auto;
+  min-height: 5.5rem;
+  padding: 0.2rem;
+  font-family: var(--main-font);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transform: rotateZ(0deg);
+}
+
+:root {
+  --disabled_bg: var(--light-gray);
+  --disabled_box-shadow: inset 0 0 0 0.2rem var(--light-gray), inset 0 0 0 0.3rem #fff;
+}
+
+.button:disabled {
+  background-color: var(--disabled_bg);
+}
+
+.bt_next::after {
+  position: absolute;
+  font-family: var(--ms);
+  content: "\e5cc";
+  font-size: 2.5rem;
+  font-variation-settings: "wght" 300;
+  right: 1rem;
+}
+
+.bt_back {
+  background-color: var(--main-color);
+  color: var(--white);
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 18rem;
+  min-height: auto;
+  padding: 0.6rem 2.5rem;
+  font-size: 1.6rem;
+}
+
+/* .bt_back::before {
+	position: absolute;
+	font-family: var(--ms);
+	content: "\e5cb";
+	font-size: 2.5rem;
+	font-variation-settings: 'wght' 300;
+	left: 1rem;
+} */
+.bt_sumi {
+  background-color: var(--middle-gray);
+  color: #ddd;
+}
+
+.button[target=_blank]::after,
+.button[target=_new]::after {
+  position: absolute;
+  font-family: var(--ms);
+  content: "\e89e";
+  font-weight: 300;
+  font-size: 2.5rem;
+  right: 1.5rem;
+}
+
+.bt_copy::after {
+  position: absolute;
+  font-family: var(--ms);
+  content: "\e14d";
+  font-weight: 200;
+  font-size: 2.5rem;
+  right: 1rem;
+}
+
+.bt_checkin::after {
+  position: relative;
+  font-family: var(--ms);
+  content: "\e569";
+  font-variation-settings: "FILL" 1;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+/*--------------------色--------------------*/
+.red {
+  color: var(--red);
+}
+
+.bt_cookie,
+.bt_submit,
+.bg_red {
+  background-color: var(--red);
+}
+
+.bg_blue {
+  background-color: var(--blue);
+}
+
+.bg_green {
+  background-color: var(--green);
+}
+
+.bg_orange {
+  background-color: var(--orange);
+}
+
+/*====================================================================
+　ヘッダー設定
+====================================================================*/
+header {
+  position: relative;
+  width: 100%;
+}
+
+/*====================================================================
+　フッター設定
+====================================================================*/
+footer {
+  position: -webkit-fixed;
+  position: fixed;
+  background: var(--main-color);
+  color: var(--white);
+  font-weight: 900;
+  width: 100%;
+  height: 5rem;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+  border-top: 0.3rem solid var(--white);
+}
+
+footer:has(#bt_menu:checked) {
+  filter: none;
+}
+
+footer.hide {
+  display: none;
+}
+
+footer ul {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 37.5rem;
+  left: calc(50% - 18.75rem);
+  height: 100%;
+}
+
+footer ul li {
+  text-align: center;
+  flex-basis: 25%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+}
+footer ul li + li {
+  border-left: 0.1rem solid var(--white);
+}
+
+footer ul li a {
+  display: block;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.menubtn,
+.menubtn:before,
+.menubtn:after {
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  height: 0.3rem;
+  width: 2.5rem;
+  content: "";
+  transition: all 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+.menubtn {
+  top: 40%;
+}
+
+.menubtn:before {
+  bottom: 0.8rem;
+}
+
+.menubtn:after {
+  top: 0.8rem;
+}
+
+.menutext {
+  position: absolute;
+  display: block;
+  bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+#bt_menu:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);
+  transform: rotate(180deg);
+}
+
+#bt_menu:checked ~ .menu-btn span::before {
+  bottom: 0;
+  transform: rotate(135deg);
+}
+
+#bt_menu:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(225deg);
+}
+
+#bt_menu:checked ~ .menu-btn span.menutext {
+  transform: none;
+}
+
+#bt_menu {
+  display: none;
+}
+
+.menu-content {
+  position: fixed;
+  background: var(--light-gray);
+  width: 100%;
+  height: 100%;
+  padding-bottom: 9rem;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s;
+  transform: translateY(100dvh);
+  transform-origin: bottom;
+  transition-timing-function: linear(0, 0.3, 0.5, 0.65, 1);
+  pointer-events: none;
+}
+
+.menu-content ul {
+  display: block;
+  padding: 0 2rem;
+  height: calc(100% - 9rem);
+  overflow-y: auto;
+}
+
+.menu-content ul li {
+  border-bottom: #fff solid 0.1rem;
+  width: 100%;
+  height: auto;
+  box-shadow: none;
+  filter: none;
+}
+
+.menu-content ul li:last-of-type {
+  border: none;
+}
+
+.menu-content ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 3rem 1.5rem 0.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-content ul li a::after {
+  position: absolute;
+  font-family: var(--ms);
+  content: "\e5cc";
+  font-size: 2.5rem;
+  font-variation-settings: "wght" 300;
+  right: 1rem;
+}
+
+#bt_menu:checked ~ .menu-content {
+  opacity: 1;
+  transform: translateY(0);
+  top: 0;
+  left: 0;
+  pointer-events: all;
+}
+
+body:has(#bt_menu:checked) {
+  overflow: hidden;
+}
+
+/*====================================================================
+　マイページ設定
+====================================================================*/
+.mypage {
+  text-align: center;
+}
+
+.mypage .title {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.mypage .explain {
+  margin: 2rem auto;
+}
+
+/*====================================================================
+　マイページポップアップ設定
+====================================================================*/
+.popup {
+  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  top: 0;
+  left: 0;
+  z-index: 500;
+}
+
+.popup > div {
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.popup div strong {
+  color: var(--red);
+  font-size: 1.8rem;
+}
+
+.popup .close {
+  margin-top: 2rem;
+}
+
+/*--------------------ユーザー情報--------------------*/
+.info {
+  padding: 0.5rem 2rem 1rem;
+  background-color: var(--main-color);
+  color: var(--white);
+}
+
+.info .name {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+
+.info .name small {
+  font-size: 1.7rem;
+}
+
+.info .myno {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+
+.info .myno small {
+  font-size: 1.5rem;
+}
+
+.info p {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.cutin {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 37.5rem;
+  background-color: var(--main-color);
+  padding-block: 1rem;
+  z-index: 99;
+  max-height: 0;
+  animation: cutin_fade 2.6s linear both;
+  overflow: hidden;
+}
+.cutin .wrapper {
+  display: flex;
+  align-items: center;
+  padding-inline: 1rem;
+  background: url("../img/bg_star.png") repeat 0rem 0rem/37.5rem auto, var(--bg-color);
+  opacity: 0;
+  animation: wrapper_fade 2s 0.4s linear both;
+  min-height: 9.7rem;
+  overflow: hidden;
+}
+.cutin .wrapper .char {
+  width: 17.13rem;
+}
+.cutin .wrapper .str {
+  flex: 1;
+}
+.cutin .wrapper.nflex {
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+.cutin .wrapper.nflex .char {
+  width: 30rem;
+}
+.cutin .wrapper.nflex .str {
+  width: 25rem;
+}
+
+.input_keyword p {
+  text-align: center;
+}
+.input_keyword .button {
+  pointer-events: none;
+}
+.input_keyword:has(input[type=radio]:checked) .button {
+  background-color: var(--red);
+  pointer-events: all;
+}
+.input_keyword:has(input[type=text]:not(:-moz-placeholder)) .button {
+  background-color: var(--red);
+  pointer-events: all;
+}
+.input_keyword:has(input[type=text]:not(:placeholder-shown)) .button {
+  background-color: var(--red);
+  pointer-events: all;
+}
+
+.anounce {
+  color: var(--white);
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  text-shadow: 0.2rem 0 var(--main-color), -0.2rem 0 var(--main-color), 0 0.2rem var(--main-color), 0 -0.2rem var(--main-color), 0.1rem 0.1rem var(--main-color), -0.1rem 0.1rem var(--main-color), 0.1rem -0.1rem var(--main-color), -0.1rem -0.1rem var(--main-color);
+  position: relative;
+  z-index: 99;
+}
+
+/*--------------------スタンプ一覧--------------------*/
+.animation-pause,
+.animation-pause * {
+  animation-play-state: paused !important;
+}
+
+.stamp-list {
+  padding: 0 2rem;
+  margin: 2rem auto;
+  position: relative;
+  width: 37.5rem;
+  overflow: hidden;
+}
+.stamp-list .title {
+  width: 30rem;
+  margin-inline: auto;
+}
+.stamp-list .earth {
+  position: relative;
+  z-index: 10;
+  width: 25rem;
+  margin-inline: auto;
+  margin-block: 8rem 8rem;
+}
+.stamp-list .baloon li {
+  position: absolute;
+  z-index: 1;
+}
+.stamp-list .baloon li:nth-child(1) {
+  width: 17rem;
+  top: 9.6rem;
+  left: 1rem;
+}
+.stamp-list .baloon li:nth-child(1) .main img {
+  transform-origin: 100%;
+  transform: scale(0);
+  animation: baloon_scale 5s 0.4s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+}
+.stamp-list .baloon li:nth-child(2) {
+  width: 20.3rem;
+  top: 8.6rem;
+  right: 0rem;
+}
+.stamp-list .baloon li:nth-child(2) .main img {
+  transform-origin: 0 100%;
+  transform: scale(0);
+  animation: baloon_scale 5s 0.8s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+}
+.stamp-list .baloon li:nth-child(3) {
+  width: 34.9rem;
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  z-index: 0;
+}
+.stamp-list .baloon li:nth-child(3) .main img {
+  transform-origin: 50%;
+  transform: scale(0);
+  animation: baloon_scale 5s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+}
+.stamp-list .baloon li:nth-child(4) {
+  width: 18.7rem;
+  top: 24.4rem;
+  left: 0rem;
+}
+.stamp-list .baloon li:nth-child(4) .main img {
+  transform-origin: 100% 0;
+  transform: scale(0);
+  animation: baloon_scale 5s 1.2s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+}
+.stamp-list .baloon li:nth-child(5) {
+  width: 18.7rem;
+  top: 26rem;
+  right: 0rem;
+}
+.stamp-list .baloon li:nth-child(5) .main img {
+  transform-origin: 0;
+  transform: scale(0);
+  animation: baloon_scale 5s 1.6s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+}
+.stamp-list .star {
+  position: absolute;
+  z-index: 10;
+}
+.stamp-list .star img {
+  opacity: 0;
+  animation: star_rotate 5s linear infinite;
+}
+.stamp-list .star_1 {
+  width: 3.1rem;
+  top: 4rem;
+  left: 1rem;
+  --rotate:-20deg;
+  transform: rotate(var(--rotate));
+  animation: star_pos_xy 5s 0.4s linear infinite;
+}
+.stamp-list .star_1 img {
+  animation-delay: 0.4s;
+}
+.stamp-list .star_2 {
+  width: 2.45rem;
+  top: 1.2rem;
+  left: 9.8rem;
+  --rotate:0deg;
+  transform: rotate(var(--rotate));
+  animation: star_pos_nxy 5s 0.4s linear infinite;
+}
+.stamp-list .star_2 img {
+  animation-delay: 0.4s;
+}
+.stamp-list .star_3 {
+  width: 2.8rem;
+  top: 1rem;
+  right: 11rem;
+  --rotate:-40deg;
+  transform: rotate(var(--rotate));
+  animation: star_pos_xy 5s 0.8s linear infinite;
+}
+.stamp-list .star_3 img {
+  animation-delay: 0.8s;
+}
+.stamp-list .star_4 {
+  width: 2.7rem;
+  top: 7rem;
+  right: 1rem;
+  --rotate:60deg;
+  transform: rotate(var(--rotate));
+  animation: star_pos_nxy 5s 0.8s linear infinite;
+}
+.stamp-list .star_4 img {
+  animation-delay: 0.8s;
+}
+.stamp-list .star_5 {
+  width: 2.2rem;
+  top: 12.6rem;
+  right: 2.6rem;
+  --rotate:0deg;
+  transform: rotate(var(--rotate));
+  animation: star_pos_nxny 5s 0.8s linear infinite;
+}
+.stamp-list .star_5 img {
+  animation-delay: 0.8s;
+}
+.stamp-list .star_6 {
+  width: 2.7rem;
+  bottom: 4rem;
+  left: 1rem;
+  --rotate:0deg;
+  transform: rotate(var(--rotate));
+  animation: star_pos_xny 5s 1.2s linear infinite;
+}
+.stamp-list .star_6 img {
+  animation-delay: 1.2s;
+}
+.stamp-list .star_7 {
+  width: 2.7rem;
+  bottom: 0rem;
+  right: 3.6rem;
+  --rotate:0deg;
+  transform: rotate(var(--rotate));
+  animation: star_pos_nxny 5s 1.2s linear infinite;
+}
+.stamp-list .star_7 img {
+  animation-delay: 1.2s;
+}
+.stamp-list .star_8 {
+  width: 2.7rem;
+  top: 4rem;
+  right: 1.6rem;
+  --rotate:0deg;
+  transform: rotate(var(--rotate));
+  animation: star_pos_nxy 5s 1.6s linear infinite;
+}
+.stamp-list .star_8 img {
+  animation-delay: 1.6s;
+}
+
+/* ポイント表示 */
+.point {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1rem;
+  background: #fff;
+  font-weight: 700;
+  padding: 0.5rem 2rem;
+  margin: 2rem auto;
+}
+
+.point span:nth-of-type(1) {
+  display: block;
+  height: 100%;
+  padding-bottom: 1rem;
+  margin-right: auto;
+}
+
+.point span:nth-of-type(2) {
+  margin-left: auto;
+}
+
+.point strong {
+  font-size: 2.6rem;
+}
+
+.stamp-list ul.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  top: 14rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
+}
+.stamp-list ul.main li {
+  width: 9.4rem;
+  margin-inline: auto;
+}
+.stamp-list ul.main li:nth-child(3) {
+  grid-column: span 2;
+  margin-block: -2rem;
+}
+.stamp-list ul.main li.active {
+  opacity: 0;
+  transform: scale(5);
+  animation: stampin 1s 3s ease-in both;
+}
+.stamp-list ul.main li.active.comp:nth-child(1) {
+  animation-delay: 3s;
+}
+.stamp-list ul.main li.active.comp:nth-child(2) {
+  animation-delay: 3.4s;
+}
+.stamp-list ul.main li.active.comp:nth-child(3) {
+  animation-delay: 3.8s;
+}
+.stamp-list ul.main li.active.comp:nth-child(4) {
+  animation-delay: 4.2s;
+}
+.stamp-list ul.main li.active.comp:nth-child(5) {
+  animation-delay: 4.6s;
+}
+
+.stamp-list ul.scroll li {
+  opacity: 0;
+}
+
+.stamp-list ul.scrollin li {
+  opacity: 1;
+  transition: all 300ms;
+}
+
+.stamp-list ul.scrollin li:nth-of-type(2),
+.stamp-list ul.scrollin li:nth-of-type(4) {
+  transition-delay: 0.05s;
+}
+
+.stamp-list ul.scrollin li:nth-of-type(3),
+.stamp-list ul.scrollin li:nth-of-type(5),
+.stamp-list ul.scrollin li:nth-of-type(7) {
+  transition-delay: 0.1s;
+}
+
+.stamp-list ul.scrollin li:nth-of-type(6),
+.stamp-list ul.scrollin li:nth-of-type(8) {
+  transition-delay: 0.15s;
+}
+
+.stamp-list ul.scrollin li:nth-of-type(9) {
+  transition-delay: 0.2s;
+}
+
+/*--横スクロール型スタンプ帳--*/
+.slide ul {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.slide li {
+  flex: 0 0 auto;
+  width: 15rem;
+}
+
+.slide li:nth-of-type(even) {
+  margin: 7.5rem -1.5rem 0;
+}
+
+.slide ::-webkit-scrollbar {
+  width: 7rem;
+  height: 0.5rem;
+}
+
+.slide ::-webkit-scrollbar-track {
+  background-color: rgba(120, 170, 210, 0.3);
+  border-radius: 10vw;
+}
+
+.slide ::-webkit-scrollbar-thumb {
+  background: #78aad2;
+  border-radius: 10vw;
+  width: 7rem;
+}
+
+/*====================================================================
+　スタンプ取得画面設定
+====================================================================*/
+.getstamp {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  text-align: center;
+  overflow: hidden;
+  min-height: 100dvh;
+  color: var(--main-color);
+}
+.getstamp .frame-wrapper {
+  position: relative;
+}
+.getstamp .frame-wrapper .deco {
+  width: 9.8rem;
+  position: absolute;
+  right: 0rem;
+  top: -3rem;
+  z-index: 10;
+  opacity: 0;
+  transform: translate(2rem, 2rem);
+  animation: rocket_anime 0.6s 2s ease-in-out both;
+}
+.getstamp .gs-frame {
+  overflow: hidden;
+  border: 0.6rem solid var(--main-color);
+  background: #f5e929;
+  width: 26.5rem;
+  margin-inline: auto;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+.getstamp .gs-frame:after {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -30%;
+  width: 25%;
+  height: 300%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.2) 70%, transparent 100%);
+  transform: rotate(25deg) translateX(-200%);
+  animation: shine 1.6s 1.4s ease-out infinite;
+  pointer-events: none;
+}
+.getstamp .bg-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.getstamp .stamp-earth {
+  width: 33.8rem;
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.getstamp .stamp-light {
+  position: absolute;
+  width: 99.3rem;
+  top: -18rem;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  animation: light_anime 0.4s 2s ease-in both;
+}
+.getstamp .stamp-light img {
+  transform-origin: 50%;
+  animation: rotate_anime 40s linear infinite;
+}
+.getstamp.correct .stampget {
+  width: 17.8rem;
+}
+.getstamp.correct .congrats {
+  width: auto;
+}
+
+/* デザイン調整時のみ使用 */
+/* .getstamp *{
+	animation: none!important;
+} */
+/*--達成時のみにスタイルあてたい場合--
+.getstamp:has(.congrats){
+
+}*/
+.stampget {
+  width: 27rem;
+  margin-inline: auto;
+  z-index: 10;
+  position: relative;
+  animation: stampget-anime 2s 0.4s linear both;
+}
+.stampget:after {
+  content: "";
+  position: absolute;
+  --shadow_height:-4rem;
+  --left_path:80%;
+  --right_path:20%;
+  inset: 3rem 0.4rem var(--shadow_height);
+  background-color: var(--main-color);
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, var(--left_path) 100%, var(--right_path) 100%);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  animation: stamp_shadow 0.6s 1.6s ease-out both;
+}
+
+.getstamp .stamp-img {
+  position: relative;
+  width: 24rem;
+  height: 24rem;
+  margin: 1rem auto;
+  opacity: 0;
+  transform: scale(2);
+  animation: stampin2 0.6s 1.6s ease-in both;
+  z-index: 99;
+}
+
+.getstamp .spot-title {
+  border-radius: 0.5rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  animation: fade-in 1.2s 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  position: relative;
+}
+
+.getstamp .message {
+  margin: 1.5rem auto 0;
+  font-weight: 700;
+  animation: fade-in 1.2s 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  font-size: 1.6rem;
+}
+
+.getstamp .congrats {
+  margin: 1.5rem auto 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  background: var(--main-color);
+  color: var(--white);
+  width: 26.5rem;
+  margin-inline: auto;
+  padding: 2rem 1.5rem;
+  border-radius: 2rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  animation: slide-down 1.2s 2.4s ease-out both;
+}
+
+.getstamp .bg_orange {
+  margin: 6rem auto 0;
+}
+
+.getstamp .congrats + .bg_orange {
+  margin-top: 2rem;
+}
+
+.getstamp .close {
+  display: block;
+  margin: auto auto 3rem;
+  font-size: 4rem;
+  font-variation-settings: "FILL" 1;
+  animation: fade-in 1.2s 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}/*# sourceMappingURL=style.css.map */

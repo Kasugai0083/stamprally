@@ -1,0 +1,322 @@
+@charset "utf-8";
+
+/*====基本的なもの====*/
+
+
+/*--フェードイン--*/
+@keyframes fade-in {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+/*--上から落ちてバウンド--*/
+@keyframes bounce-in-top {
+	0% {
+		transform: translateY(-50rem);
+		animation-timing-function: ease-in;
+	}
+	38% {
+		transform: translateY(0);
+		animation-timing-function: ease-out;
+	}
+	55% {
+		transform: translateY(-6.5rem);
+		animation-timing-function: ease-in;
+	}
+	72% {
+		transform: translateY(0);
+		animation-timing-function: ease-out;
+	}
+	81% {
+		transform: translateY(-2.8rem);
+		animation-timing-function: ease-in;
+	}
+	90% {
+		transform: translateY(0);
+		animation-timing-function: ease-out;
+	}
+	95% {
+		transform: translateY(-0.8rem);
+		animation-timing-function: ease-in;
+	}
+	100% {
+		transform: translateY(0);
+		animation-timing-function: ease-out;
+	}
+}
+
+
+@keyframes bg_star {
+	0%{background-position: 0 0;}
+	100%{background-position: -37.5rem 0;}
+}
+@keyframes baloon_scale {
+	0%,90%{transform: scale(0);}
+	10%,50%{transform: scale(1);}
+}
+@keyframes star_rotate {
+	0%{opacity: 0; transform: rotate(var(--rotate));}
+	10%{opacity: 1; transform: rotate(calc(180deg + var(--rotate)));}
+	50%{opacity: 1; transform: rotate(calc(800deg + var(--rotate)));}
+	60%{opacity: 0; transform: rotate(calc(980deg + var(--rotate)));}
+}
+@keyframes star_pos_xy{
+	0%{
+		transform: translate(2rem,2rem);
+	}
+	10%{
+		transform: translate(0);
+	}
+}
+@keyframes star_pos_nxy{
+	0%{
+		transform: translate(-2rem,2rem);
+	}
+	10%{
+		transform: translate(0);
+	}
+}
+@keyframes star_pos_nxny{
+	0%{
+		transform: translate(-2rem,-2rem);
+	}
+	10%{
+		transform: translate(0);
+	}
+}
+
+@keyframes star_pos_xny{
+	0%{
+		transform: translate(2rem,-2rem);
+	}
+	10%{
+		transform: translate(0);
+	}
+}
+@keyframes wrapper_fade {
+	0% {
+		opacity: 0;
+	}
+
+	25% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity:1;
+	}
+
+
+}
+
+@keyframes cutin_fade {
+	0%,100%{
+		max-height: 0; padding-block: 0;
+	}
+	16%,80%{
+		max-height: 40rem; padding-block: 1rem 1rem;
+	}
+}
+
+@keyframes stampin {
+	0% {
+		opacity: 0;
+		transform: scale(5);
+		pointer-events: none;
+	}
+
+	45% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1) translateY(0);
+	}
+
+	53% {
+		/* ドンッ！ */
+		transform: scale(1) translateY(4px);
+	}
+
+	57% {
+		/* 反動でちょっと跳ねる */
+		transform: scale(1) translateY(-2px);
+	}
+
+	61% {
+		/* もう一度ドン */
+		transform: scale(1) translateY(2px);
+	}
+
+	66% {
+		transform: scale(1) translateY(0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+		pointer-events: all;
+
+	}
+}
+@keyframes stampin2 {
+	0% {
+		transform: scale(2);
+	}
+	5%{
+		opacity: 1;
+	}
+	45% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1) translateY(0);
+	}
+
+	53% {
+		/* ドンッ！ */
+		transform: scale(1) translateY(4px);
+	}
+
+	57% {
+		/* 反動でちょっと跳ねる */
+		transform: scale(1) translateY(-2px);
+	}
+
+	61% {
+		/* もう一度ドン */
+		transform: scale(1) translateY(2px);
+	}
+
+	66% {
+		transform: scale(1) translateY(0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+@keyframes stamp_shadow {
+	0% {
+		transform: scaleY(0);
+	}
+	100% {
+		transform: scaleY(1);
+	}
+}
+@keyframes stampget-anime {
+
+	/* 落下開始 */
+	0% {
+		transform: translateY(-50rem);
+		animation-timing-function: ease-in;
+	}
+
+	/* ドンッ */
+	10.3% {
+		transform: translateY(8rem);
+		animation-timing-function: ease-out;
+	}
+
+	/* 1回目のバウンド */
+	14.9% {
+		transform: translateY(1.5rem);
+		animation-timing-function: ease-in;
+	}
+
+	19.5% {
+		transform: translateY(8rem);
+		animation-timing-function: ease-out;
+	}
+
+	/* 2回目 */
+	21.9% {
+		transform: translateY(5.2rem);
+		animation-timing-function: ease-in;
+	}
+
+	24.3% {
+		transform: translateY(8rem);
+		animation-timing-function: ease-out;
+	}
+
+	/* 3回目 */
+	25.7% {
+		transform: translateY(7.2rem);
+		animation-timing-function: ease-in;
+	}
+
+	27% {
+		transform: translateY(8rem);
+		animation-timing-function: ease-out;
+	}
+
+	/* 3秒まで停止 */
+	70.3% {
+		transform: translateY(8rem);
+		animation-timing-function: ease-out;
+	}
+
+	/* スッと上へ */
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes shine {
+	0% {
+		transform: rotate(25deg) translateX(-200%);
+	}
+
+	100% {
+		transform: rotate(25deg) translateX(700%);
+	}
+}
+
+@keyframes rocket_anime {
+	0%{
+		opacity: 0;
+		transform: translate(2rem,2rem);
+	}
+	100%{
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes light_anime {
+	0%{
+		transform: translateX(-50%) scale(0);
+	}	
+	100%{
+		transform: translateX(-50%) scale(1);
+	}	
+}
+
+@keyframes rotate_anime {
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+
+
+@keyframes slide-down {
+	0% {
+		max-height: 0;
+		opacity: 0;
+	}
+
+	100% {
+		max-height: 20rem;
+		opacity: 1;
+	}
+}

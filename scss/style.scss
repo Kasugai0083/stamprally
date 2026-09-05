@@ -1,0 +1,168 @@
+@charset "utf-8";
+// -------------------------------------------------------------------
+// ページ使用設定
+// コメントアウトで使用切り替え
+// -------------------------------------------------------------------
+
+// [Core]CSS関数
+@use "base/variable";
+
+
+// === 共通・レイアウト ================================================
+
+// [Core]汎用クラス
+@use "base/base";
+
+// [UI]ボタン
+@use "components/button";
+
+// [UI]エラー
+// @use "components/error";
+
+// [UI]アコーディオン
+// @use "components/accordion";
+
+// [Layout]ヘッダー
+@use "components/header";
+
+// [Layout]フッター
+@use "components/footer";
+
+
+// === 外部サービス ================================================
+
+// [UI]SNS関連
+// @use "page/option/share";
+
+// [UI]Shutto翻訳
+// @use "page/option/shutto";
+
+// [Layout]lineログイン
+// @use "page/option/line";
+
+
+// === マイページ ================================================
+
+// [Layout]マイページメイン
+@use "page/mypage/index";
+
+// [Layout]スタンプ帳
+@use "page/mypage/stamplist";
+
+// [Layout]賞品リスト
+// @use "page/mypage/plizelist";
+
+// [UI]スタンプポップアップ
+// @use "page/mypage/stamp_popup";
+
+
+// === トピックス ================================================
+
+// [Layout/UI] トピックス
+// @use "page/option/topics";
+
+
+// === エリア ================================================
+
+// [Layout]マップ
+// @use "page/area/map";
+
+// [Layout]エリアリスト
+// @use "page/area/area_list";
+
+// [Layout]地点リスト
+// @use "page/area/spot_list";
+
+// [Layout]地点詳細
+// @use "page/area/spot_detail";
+
+
+// === ユーザー参加 ================================================
+
+// [Layout/UI]クイズ
+// @use "page/contents/quiz";
+
+// [Layout/UI]抽選
+// @use "page/contents/lot";
+
+// [Layout/UI]スクラッチ
+// @use "page/contents/scratch";
+
+// [Layout/UI]フォト
+// @use "page/contents/photo";
+
+// === キャンペーンコンテンツ ================================================
+
+// [Layout]スタンプ取得
+@use "page/contents/getstamp";
+
+// [Layout]賞品引換
+// @use "page/contents/exchange";
+
+// [Layout]クーポン
+// @use "page/contents/coupon";
+
+// [Layout]壁紙
+// @use "page/contents/wallpaper";
+
+// [Layout]認定証
+// @use "page/contents/certification";
+
+
+// === フォーム ================================================
+
+// [Layout/UI]フォーム汎用
+// @use "page/form/form";
+
+// [Layout/UI]アンケート
+// @use "page/form/question";
+
+// [Layout/UI]言語選択
+// @use "page/form/language";
+
+
+// === ガイドライン ================================================
+
+// [Layout]利用規約
+// @use "page/guideline/rule";
+
+// [Layout]参加時のご注意
+// @use "page/guideline/join_attention";
+
+// [Layout]よくある質問
+// @use "page/guideline/faq";
+
+// [Layout]自動翻訳
+// @use "page/guideline/translate";
+
+// [Layout]QRが読み込めない場合
+// @use "page/guideline/qanda";
+
+// === サブページ ================================================
+
+// [Layout]賞品一覧ページ
+// @use "page/extra/prize_page";
+
+// [Layout]履歴
+// @use "page/extra/history";
+
+
+// === レア ================================================
+
+// [Layout]電子スタンプ
+// @use "page/extra/el_stamp";
+
+// [Layout]ランキング
+// @use "page/extra/ranking";
+
+// [Layout]アルバム
+// @use "page/extra/album";
+
+// [Layout]音声再生
+// @use "page/extra/play";
+
+// [Layout]本
+// @use "page/contents/book";
+
+
+@import url("./animation.css");

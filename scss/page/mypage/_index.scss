@@ -1,0 +1,147 @@
+// 関数読み込み
+@use "../../base/function" as *;
+
+// 定数読み込み
+@use "../../base/const" as *; 
+/*====================================================================
+　マイページ設定
+====================================================================*/
+.mypage {
+	text-align: center;
+}
+
+.mypage .title {
+	font-weight: 700;
+	font-size: 1.8rem;
+}
+.mypage .explain{
+	margin: 2rem auto;
+}
+/*====================================================================
+　マイページポップアップ設定
+====================================================================*/
+.popup {
+	display: none;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 100%;
+	padding: 2rem;
+	top: 0;
+	left: 0;
+	z-index: 500;
+}
+.popup > div {
+	background: #fff;
+	padding: 2rem;
+	text-align: center;
+}
+.popup div strong {
+	color: var(--red);
+	font-size: 1.8rem;
+}
+.popup .close {
+	margin-top: 2rem;
+}
+/*--------------------ユーザー情報--------------------*/
+.info {
+	padding: .5rem 2rem 1rem;
+	background-color: var(--main-color);
+	color:var(--white);
+}
+.info .name {
+	font-size: 2.1rem;
+	font-weight: 700;
+}
+.info .name small{
+	font-size: 1.7rem;
+}
+.info .myno {
+	font-size: 2.1rem;
+	font-weight: 700;
+}
+.info .myno small{
+	font-size: 1.5rem;
+}
+.info p {
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+
+.cutin{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform:translate(-50%,-50%);
+	width: r(375);
+	background-color: var(--main-color);
+	padding-block: 1rem;
+	z-index: 99;
+	max-height: 0;
+	animation: cutin_fade 2.6s linear both;
+	overflow: hidden;
+	.wrapper{
+		display: flex;
+		align-items: center;
+		padding-inline: r(10);
+		background: img("bg_star.png") repeat #{r(0) r(0)} / r(375) auto,var(--bg-color);
+		opacity: 0;
+		animation: wrapper_fade 2s .4s linear both;
+		min-height: 9.7rem;
+		overflow: hidden;
+		.char{
+			width: 17.13rem;
+		}
+		.str{
+			flex: 1;
+		}
+		&.nflex{
+			flex-direction: column-reverse;
+			justify-content: center;
+			.char{
+				width: r(300);
+			}
+			.str{
+				width: r(250);
+			}
+		}
+
+	}
+}
+
+.input_keyword{
+	p{
+		text-align: center;
+	}
+	.button{
+		pointer-events: none;
+	}
+	&:has(input[type="radio"]:checked) .button{
+		background-color: var(--red);
+		pointer-events: all;
+	}
+
+	&:has(input[type="text"]:not(:placeholder-shown)) .button{
+		background-color: var(--red);
+		pointer-events: all;
+	}
+}
+
+.anounce{
+	color: var(--white);
+	font-size: r(16);
+	margin-bottom: r(20);
+	font-weight: 900;
+	text-shadow:
+	r(2) 0 var(--main-color),
+	r(-2) 0 var(--main-color),
+	0 r(2) var(--main-color),
+	0 r(-2) var(--main-color),
+	r(1) r(1) var(--main-color),
+	r(-1) r(1) var(--main-color),
+	r(1) r(-1) var(--main-color),
+	r(-1) r(-1) var(--main-color);
+	position: relative;
+	z-index: 99;
+}

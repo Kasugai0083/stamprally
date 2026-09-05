@@ -1,0 +1,322 @@
+// 関数読み込み
+@use "../../base/function" as *;
+
+// 定数読み込み
+@use "../../base/const" as *; 
+/*--------------------スタンプ一覧--------------------*/
+.animation-pause,
+.animation-pause *{
+	animation-play-state: paused !important;
+}
+
+
+.stamp-list {
+	padding: 0 2rem;
+	margin: 2rem auto;
+	position: relative;
+	width: r(375);
+	overflow: hidden;
+	.title{
+		width: r(300);
+		margin-inline:auto;
+	}
+	.earth{
+		position: relative;
+		z-index: 10;
+		width: r(250);
+		margin-inline:auto;
+		margin-block: r(80) r(80);
+	}
+
+	.baloon{
+		li{
+			position: absolute;
+			z-index: 1;
+			&:nth-child(1){
+				width: r(170);
+				top: r(96);
+				left: r(10);
+				.main{
+					img{
+						transform-origin: 100%;
+						transform: scale(0);
+						animation:baloon_scale 5s .4s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+					}
+				}
+			}
+			&:nth-child(2){
+				width: r(203);
+				top: r(86);
+				right: r(0);
+				.main{
+					img{
+						transform-origin: 0 100%;
+						transform: scale(0);
+						animation:baloon_scale 5s .8s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+					}
+				}
+			}
+			&:nth-child(3){
+				width: r(349);
+				@include func_inset($left: 0, $top: r(70));
+				z-index: 0;
+				.main{
+					img{
+						transform-origin: 50%;
+						transform: scale(0);
+						animation:baloon_scale 5s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+					}
+				}
+			}
+			&:nth-child(4){
+				width: r(187);
+				top: r(244);
+				left: r(0);
+				.main{
+					img{
+						transform-origin: 100% 0;
+						transform: scale(0);
+						animation:baloon_scale 5s 1.2s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+					}
+				}
+			}
+			&:nth-child(5){
+				width: r(187);
+				top: r(260);
+				right: r(0);
+				.main{
+					img{
+						transform-origin: 0;
+						transform: scale(0);
+						animation:baloon_scale 5s 1.6s cubic-bezier(0.05, 0.885, 0.105, 1.275) infinite;
+					}
+				}
+			}
+		}
+	}
+	.star{
+		position: absolute;
+		z-index: 10;
+		img{
+			opacity: 0;
+			animation: star_rotate 5s linear infinite,;
+		}
+
+		&_1{
+			width: r(31);
+			top: r(40);
+			left:r(10);
+			--rotate:-20deg;
+			transform: rotate(var(--rotate));
+			animation: star_pos_xy 5s .4s linear infinite,;
+			img{
+				animation-delay: .4s;
+			}
+		}
+		&_2{
+			width: r(24.5);
+			top: r(12);
+			left: r(98);
+			--rotate:0deg;
+			transform: rotate(var(--rotate));
+			animation: star_pos_nxy 5s .4s linear infinite,;			
+			img{
+				animation-delay: .4s;
+			}
+		}
+		&_3{
+			width: r(28);
+			top: r(10);
+			right: r(110);
+			--rotate:-40deg;
+			transform: rotate(var(--rotate));
+			animation: star_pos_xy 5s .8s linear infinite,;			
+			img{
+				animation-delay: .8s;
+			}
+
+		}
+		&_4{
+			width: r(27);
+			top: r(70);
+			right: r(10);
+			--rotate:60deg;
+			transform: rotate(var(--rotate));
+			animation: star_pos_nxy 5s .8s linear infinite,;			
+			img{
+				animation-delay: .8s;
+			}
+
+		}
+		&_5{
+			width: r(22);
+			top: r(126);
+			right: r(26);
+			--rotate:0deg;
+			transform: rotate(var(--rotate));
+			animation: star_pos_nxny 5s .8s linear infinite,;			
+
+			img{
+				animation-delay: .8s;
+			}
+		}
+		&_6{
+			width: r(27);
+			bottom: r(40);
+			left: r(10);
+			--rotate:0deg;
+			transform: rotate(var(--rotate));
+			animation: star_pos_xny 5s 1.2s linear infinite,;
+			img{
+				animation-delay: 1.2s;
+			}	
+		}
+		&_7{
+			width: r(27);
+			bottom: r(0);
+			right: r(36);
+			--rotate:0deg;
+			transform: rotate(var(--rotate));
+			animation: star_pos_nxny 5s 1.2s linear infinite,;
+			img{
+				animation-delay: 1.2s;
+			}
+		}
+		&_8{
+			width: r(27);
+			top: r(40);
+			right: r(16);
+			--rotate:0deg;
+			transform: rotate(var(--rotate));
+			animation: star_pos_nxy 5s 1.6s linear infinite,;
+			img{
+				animation-delay: 1.6s;
+			}
+		}
+		
+	}
+
+}
+/* ポイント表示 */
+.point {
+	position: relative;
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	gap: 1rem;
+	background: #fff;
+	font-weight: 700;
+	padding: 0.5rem 2rem;
+	margin: 2rem auto;
+}
+.point span:nth-of-type(1){
+	display: block;
+	height: 100%;
+	padding-bottom: 1rem;
+	margin-right: auto;
+}
+.point span:nth-of-type(2){
+	margin-left: auto;
+}
+.point strong {
+	font-size: 2.6rem;
+}
+
+.stamp-list ul.main {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	@include func_inset($left: 50%, $top: r(140));
+	transform:translateX(-50%);
+	width: 100%;
+	z-index: 10;
+	li{
+		width: r(94);
+		margin-inline:auto;
+		&:nth-child(3){
+			grid-column: span 2;
+			margin-block: r(-20);
+		}
+
+
+		&.active{
+			opacity: 0;
+			transform: scale(5);
+			animation: stampin 1s 3s ease-in both;
+
+			&.comp{
+				&:nth-child(1){
+					animation-delay: 3s;
+				}
+				&:nth-child(2){
+					animation-delay: 3.4s;
+				}
+				&:nth-child(3){
+					animation-delay: 3.8s;
+				}
+				&:nth-child(4){
+					animation-delay: 4.2s;
+				}
+				&:nth-child(5){
+					animation-delay: 4.6s;
+				}
+			}
+
+		}
+
+
+
+	}
+
+}
+
+.stamp-list ul.scroll li{
+	opacity: 0;
+}
+.stamp-list ul.scrollin li{
+	opacity: 1;
+	transition: all 300ms;
+}
+.stamp-list ul.scrollin li:nth-of-type(2),
+.stamp-list ul.scrollin li:nth-of-type(4){
+	transition-delay: 0.05s;
+}
+.stamp-list ul.scrollin li:nth-of-type(3),
+.stamp-list ul.scrollin li:nth-of-type(5),
+.stamp-list ul.scrollin li:nth-of-type(7){
+	transition-delay: 0.10s;
+}
+.stamp-list ul.scrollin li:nth-of-type(6),
+.stamp-list ul.scrollin li:nth-of-type(8){
+	transition-delay: 0.15s;
+}
+.stamp-list ul.scrollin li:nth-of-type(9){
+	transition-delay: 0.20s;
+}
+
+
+/*--横スクロール型スタンプ帳--*/
+.slide ul{
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	padding-bottom: 0.5rem;
+}
+.slide li{
+	flex: 0 0 auto;
+	width: 15rem;
+}
+.slide li:nth-of-type(even){
+	margin: 7.5rem -1.5rem 0;
+}
+.slide ::-webkit-scrollbar {
+	width: 7rem;
+	height: 0.5rem;
+	}
+.slide ::-webkit-scrollbar-track {
+	background-color: rgba(120, 170, 210,0.3);
+	border-radius: 10vw;
+	}
+.slide ::-webkit-scrollbar-thumb {
+	background: #78aad2;
+	border-radius: 10vw;
+	width: 7rem;
+	}

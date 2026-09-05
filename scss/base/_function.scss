@@ -1,0 +1,136 @@
+// 定数読み込み
+@use "../base/const" as *; 
+
+@function r($x){
+  @return ($x / 10) * 1rem; 
+}
+
+@function img($file){
+  @return url("#{$img_path}#{$file}");
+}
+
+@function fluid($min, $max, $min-vw: 375, $max-vw: 1440) {
+  $slope: ($max - $min) / ($max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+
+  @return clamp(
+    #{$min}px,
+    #{$intercept}px + #{$slope * 100}vw,
+    #{$max}px
+  );
+}
+
+
+/// absoluteポジションを簡潔に指定するmixin
+///
+/// @param {Length|auto} $top    - topの値
+/// @param {Length|auto} $right  - rightの値
+/// @param {Length|auto} $bottom - bottomの値
+/// @param {Length|auto} $left   - leftの値
+///
+/// @example scss
+///   .tooltip {
+///     @include inset($top: 10px, $left: 20px);
+///   }
+///
+@mixin func_inset($top: null, $right: null, $bottom: null, $left: null, $position: absolute) {
+  position: $position;
+  @if $top != null { top: $top; }
+  @if $right != null { right: $right; }
+  @if $bottom != null { bottom: $bottom; }
+  @if $left != null { left: $left; }
+}
+
+/// 要素をabsolute配置で中央寄せするmixin
+///
+/// @param {String} $axis [both]
+///   - both : 縦横中央（デフォルト）
+///   - x    : 横方向のみ中央
+///   - y    : 縦方向のみ中央
+///
+/// @example scss
+///   .modal {
+///     @include center(); // 縦横中央
+///   }
+///
+/// @example scss
+///   .tooltip {
+///     @include center(x); // 横中央
+///   }
+///
+/// @example scss
+///   .badge {
+///     @include center(y); // 縦中央
+///   }
+///
+@mixin center($axis: both) {
+  position: absolute;
+
+  @if $axis == both {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $axis == x {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $axis == y {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/// Flexboxで要素を中央揃えするmixin
+///
+/// @param {String} $direction [row]
+///   - row    : 横並び（デフォルト）
+///   - column : 縦並び
+///
+/// @example scss
+///   .button {
+///     @include flex-center();
+///   }
+///
+/// @example scss
+///   .card {
+///     @include flex-center(column);
+///   }
+///
+/// @example scss
+///   .icon-text {
+///     @include flex-center(row);
+///     gap: 0.5rem;
+///   }
+///
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+/// 要素の width / height をまとめて指定するmixin
+///
+/// @param {Length} $width
+///   - 横幅
+/// @param {Length} $height [$width]
+///   - 高さ（省略時は width と同じ値）
+///
+/// @example scss
+///   .icon {
+///     @include size(3rem);
+///   }
+///
+/// @example scss
+///   .thumbnail {
+///     @include size(100%, 200px);
+///   }
+///
+/// @example scss
+///   .square {
+///     @include size(40px);
+///   }
+///
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

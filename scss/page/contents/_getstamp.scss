@@ -1,0 +1,190 @@
+// 関数読み込み
+@use "../../base/function" as *;
+
+// 定数読み込み
+@use "../../base/const" as *; 
+/*====================================================================
+　スタンプ取得画面設定
+====================================================================*/
+.getstamp {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 0;
+	text-align: center;
+	overflow: hidden;
+	min-height: 100dvh;
+	color: var(--main-color);
+
+	.frame-wrapper{
+		position: relative;
+		.deco{
+			width: r(98);
+			position: absolute;
+			right: r(0);
+			top: r(-30);
+			z-index: 10;
+			opacity: 0;
+			transform: translate(2rem,2rem);
+			animation: rocket_anime .6s 2s ease-in-out both;
+		}
+	}
+
+	.gs-frame{
+		overflow: hidden;
+		border: .6rem solid var(--main-color);
+		background: #f5e929;
+		width: r(265);
+		margin-inline:auto;
+		border-radius: r(20);
+		padding: r(15);
+		position: relative;
+		z-index: 10;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: -150%;
+			left: -30%;
+			width: 25%;
+			height: 300%;
+
+			background: linear-gradient(
+				90deg,
+				transparent 0%,
+				rgba(255, 255, 255, .2) 30%,
+				rgba(255, 255, 255, .9) 50%,
+				rgba(255, 255, 255, .2) 70%,
+				transparent 100%
+			);
+
+			transform: rotate(25deg) translateX(-200%);
+			animation: shine 1.6s 1.4s ease-out infinite;
+			pointer-events: none;
+		}
+
+	}
+	.bg-wrap{
+		position: absolute;
+		inset: 0;
+		overflow: hidden;
+	}
+	.stamp-earth{
+		width: r(338);
+		position: absolute;
+		top: r(100);
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.stamp-light{
+		position: absolute;
+		width: r(993);
+		top: r(-180);
+		left: 50%;
+		transform: translateX(-50%) scale(0);
+		animation: light_anime .4s 2s ease-in both;
+		img{
+			transform-origin: 50%;
+			animation: rotate_anime 40s linear infinite;
+		}
+	}
+	&.correct{
+		.stampget{
+			width: r(178);
+		}
+
+		.congrats{
+			width: auto;
+		}
+	}
+}
+/* デザイン調整時のみ使用 */
+/* .getstamp *{
+	animation: none!important;
+} */
+/*--達成時のみにスタイルあてたい場合--
+.getstamp:has(.congrats){
+
+}*/
+.stampget{
+	width: r(270);
+	margin-inline:auto;
+	z-index: 10;
+	position: relative;
+
+	animation: stampget-anime 2s .4s linear both;
+
+	&:after{
+		content: "";
+		position: absolute;
+		--shadow_height:-4rem;
+		--left_path:80%;
+		--right_path:20%;
+		inset: r(30) r(4) var(--shadow_height);
+		background-color: var(--main-color);
+		z-index: -1;
+		clip-path: polygon(0 0, 100% 0, var(--left_path) 100%, var(--right_path) 100%);
+		transform: scaleY(0);
+		transform-origin: 50% 0;
+		animation: stamp_shadow 0.6s 1.6s ease-out both;
+	}
+}
+.getstamp .stamp-img {
+	position: relative;
+	width: 24rem;
+	height: 24rem;
+	margin: 1rem auto;
+	opacity: 0;
+	transform: scale(2);
+	animation: stampin2 .6s 1.6s ease-in both;
+	z-index: 99;
+}
+
+.getstamp .spot-title {
+	border-radius: 0.5rem;
+	font-size: 2.6rem;
+	font-weight: 700;
+	line-height: 1;
+	animation: fade-in 1.2s 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	position: relative;
+	
+}
+.getstamp .message {
+	margin: 1.5rem auto 0;
+	font-weight: 700;
+	animation: fade-in 1.2s 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	font-size: r(16);
+}
+.getstamp .congrats {
+	margin: 1.5rem auto 0;
+	font-weight: 700;
+	font-size: 1.8rem;
+	background: var(--main-color);
+	color: var(--white);
+	width: r(265);
+	margin-inline:auto;
+	padding: 2rem 1.5rem;
+	border-radius: r(20);
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+
+	animation: slide-down 1.2s 2.4s ease-out both;
+}
+
+
+.getstamp .bg_orange {
+	margin: 6rem auto 0;
+
+}
+.getstamp .congrats + .bg_orange{
+	margin-top: 2rem;
+}
+.getstamp .close {
+	display: block;
+	margin: auto auto 3rem;
+	font-size: 4rem;
+	font-variation-settings: 'FILL' 1;
+	animation: fade-in 1.2s 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
